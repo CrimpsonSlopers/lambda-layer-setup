@@ -1,6 +1,7 @@
-# MySQL Layer for AWS Lambda
+# Create AWS Lambda Layers
 
-This repository provides a makefile and Dockerfile for creating a MySQL layer for use in AWS Lambda. The layer contains the necessary MySQL dependencies for connecting to a MySQL database from within a Lambda function.
+This repository provides a makefile and Dockerfile for creating a layer for use in AWS Lambda. The resulting
+layer contains the necessary dependencies contained in the requirements file.
 
 ## Requirements
 - Docker
@@ -29,7 +30,7 @@ You can run `make clean` to remove all files created by this process.
 - `make publish_layer` : publishes the layer to your AWS account
 
 ## How it works
-The makefile uses Docker to create a container with the necessary dependencies. The container is built using the specified AWS Lambda image, and the MySQL dependencies are installed into the `./python/lib/python${PYTHON_VERSION}/site-packages` directory. Once the container is built, the layer is created by zipping the contents of the site-packages directory.
+The makefile uses Docker to create a container with the necessary dependencies. The container is built using the specified AWS Lambda image, and the dependencies are installed into the `./python/lib/python${PYTHON_VERSION}/site-packages` directory. Once the container is built, the layer is created by zipping the contents of the site-packages directory.
 
 ## Note
 - Make sure to update the `./python/lib/python${PYTHON_VERSION}/site-packages` directory with the required dependencies before creating the layer.
